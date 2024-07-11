@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aditya - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left" data-aos="fade-down" data-aos-duration="2000">
+          Aditya Khurana
+        </div>
+        <div class="right">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#project">Skills</a></li>
+            <li><a href="#skills">Projects</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="firstSection" id="home" data-aos="fade-up" data-aos-duration="2000">
+        <div class="leftsection">
+          Hi my name is <span class="purple">Aditya</span>
+          <div>and I am a passionate</div>
+          <span id="element"></span>
+          <div class="buttons">
+            <button class="btn">Download Resume</button>
+            <button class="btn" onclick="window.location.href='https://github.com/vannystark3'">Github</button>
+            <button class="btn" style="margin-top: 10px;" onclick="window.location.href='https://linkedin.com/in/aditya-khurana-'">LinkedIn</button>
+          </div>
+        </div>
+        <div class="rightsection">
+          <img src="logo.jpg" alt="" style="border-radius: 50%;"/>
+        </div>
+      </section>
+      <hr>
+      <section class="secondSection" id="experience" data-aos="fade-up" data-aos-duration="2000">
+        <h1>Work Experience</h1>
+        <div class="work-grid" id="work-grid"></div>
+      </section>
+      <hr>
+      <section class="skills-section" id="skills" data-aos="fade-up" data-aos-duration="2000">
+        <h1>Skills</h1>
+        <div class="skills-grid" id="skills-grid"></div>
+      </section>
+      <hr>
+      <section class="project-section" id="project" data-aos="fade-up" data-aos-duration="2000">
+        <h1>Projects</h1>
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+    </main>
+    <footer id="contact">
+      <h2>Contact Me</h2>
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      AOS.init();
+
+      var typed = new Typed("#element", {
+        strings: ["Web Developer", "Software Developer"],
+        typeSpeed: 80,
+        loop: true,
+      });
+      
+      const workExperiences = [
+        {
+          title: "Vocational Trainee",
+          company: "Hindalco Industries Limited, Aditya Birla Group",
+          description:
+            "Jun 2024 - present",
+          image: "hil.jpeg",
+        },
+        {
+          title: "Vice Lead",
+          company: "Coding Ninjas - Chandigarh University",
+          description:
+            "Feb 2024 - present",
+          image: "cn.jpeg",
+        },
+        {
+          title: "Vice President",
+          company: "C Square",
+          description:
+            "Aug 2023 - July 2024",
+          image: "cs.png",
+        },
+        {
+          title: "Campus Ambassador",
+          company: "E-cell, IIT Guwahati",
+          description:
+            "Jan 2024 - Feb 2024",
+          image: "iitg.jpeg",
+        },
+      ];
+
+      const projects = [
+        {
+          title: "Netflix Clone",
+          description: "HTML/CSS, JavaScript",
+          image: "netflix.png",
+          url: "https://vannystark3.github.io/netflix-clone-/",
+        },
+        {
+          title: "Online Restaurant Menu",
+          description: "HTML/CSS, JavaScript",
+          image: "menu.png",
+          url: "https://vannystark3.github.io/restaurant_menu/",
+        },
+        {
+          title: "Iron Man",
+          description: "HTML/CSS, JavaScript",
+          image: "iron.png",
+          url: "https://vannystark3.github.io/iron-man/",
+        },
+      ];
+
+      const skills = [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "Django",
+        "React",
+        "Node.js",
+        "MySQL",
+        "RESTful APIs",
+        "Responsive Design",
+        "Problem Solving",
+        "Teamwork",
+        ];
+
+      const workGrid = document.getElementById("work-grid");
+      const projectGrid = document.getElementById("project-grid");
+      const skillsGrid = document.getElementById("skills-grid");
+
+      workExperiences.forEach((work) => {
+        const card = document.createElement("div");
+        card.className = "work-card";
+        card.innerHTML = `
+          <img src="${work.image}" alt="${work.title}" />
+          <h3>${work.title}</h3>
+          <h4>${work.company}</h4>
+          <p>${work.description}</p>
+        `;
+        workGrid.appendChild(card);
+      });
+
+      projects.forEach((project) => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+        card.innerHTML = `
+          <img src="${project.image}" alt="${project.title}"  onclick="window.location.href= '${project.url}'"/>
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+        `;
+        projectGrid.appendChild(card);
+      });
+
+      skills.forEach((skill) => {
+        const card = document.createElement("div");
+        card.className = "skills-card";
+        card.innerHTML = `
+          <h3>${skill}</h3>
+        `;
+        skillsGrid.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
