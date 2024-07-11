@@ -44,9 +44,11 @@ main hr {
     justify-content: space-around;
     margin: 180px 0;
     align-items: center;
+    flex-wrap: wrap;
 }
 .firstSection > div {
     width: 30%;
+    min-width: 300px;
 }
 .leftsection {
     font-size: 2rem;
@@ -120,12 +122,10 @@ h1 {
     justify-content: center;
     gap: 20px; /* Gap between cards */
 }
-.skills-section{
-    height: 80vh;
+.skills-section {
     padding: 20px;
 }
-.project-section{
-    height: 80vh;
+.project-section {
     padding: 20px;
 }
 .project-card {
@@ -209,4 +209,45 @@ footer {
     color: white;
     cursor: pointer;
     font-size: 1rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .work-card, .project-card {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    .firstSection {
+        flex-direction: column;
+        margin: 100px 0;
+    }
+    .firstSection > div {
+        width: 80%;
+    }
+    .work-card, .project-card {
+        flex: 1 1 calc(100% - 40px);
+    }
+    .skills-card {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: row;
+    }
+    nav ul li {
+        margin: 1 0;
+    }
+    .firstSection > div {
+        width: 100%;
+    }
+    .skills-card {
+        flex: 1 1 calc(100% - 40px);
+    }
 }
